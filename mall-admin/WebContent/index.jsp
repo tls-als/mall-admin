@@ -12,6 +12,13 @@
 <title>메인페이지</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+<!-- 
+	admin-mall 프로젝트 아쉬운 점
+	1. 페이징을 온전하게 구현하지 못한 아쉬움 -> 숫자를 이용한 페이지 이동을 구현해보려고 하였으나 아직 방안을 찾고 있는 중
+	2. 페이징에 대한 이해도가 아직 부족.
+	3. 회원 탈퇴 기능에 대한 아쉬움 -> 한번 탈퇴한 계정의 이메일은 다시 가입하지 못하도록 구현하는 기능 필요.
+	4. 두 쿼리를 조인하기 위하여 두 데이터를 함께 담기 위한 OrdersAndProduct 메서드를 만드는 과정에 대한 복습이 필요. 
+ -->
 <body>
 <div class="container">
 	<!-- 
