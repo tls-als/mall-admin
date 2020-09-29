@@ -36,7 +36,7 @@ public class CategoryDao {
 		DBUtil dbutil = new DBUtil();
 		Connection conn = dbutil.getConnection();
 		// category_ck='Y'(추천) 4개 출력
-		String sql = "select category_id, category_pic from category where category_ck='Y' limit 0,4";	
+		String sql = "select category_id, category_name, category_pic from category where category_ck='Y' limit 0,4";	
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		
@@ -45,6 +45,7 @@ public class CategoryDao {
 //			category.categoryId = rs.getInt("category_id");		// rs.getInt("category_id")는 컬럼명이 아닌 AS도 올수 있다.
 //			category.categoryPic = rs.getString("category_pic");
 			category.setCategoryId(rs.getInt("category_id"));
+			category.setCategoryName(rs.getString("category_name"));
 			category.setCategoryPic(rs.getString("category_pic"));
 			list.add(category);
 		}

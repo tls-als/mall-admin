@@ -23,11 +23,11 @@
 	<table	class="table table-bordered">
 		<tr>
 			<td>이메일</td>
-			<td><input type="text" name="memberEmail" class="form-control"></td>
+			<td><input type="text" name="memberEmail" class="form-control" value="hong@gd.com"></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="password" name="memberPw" class="form-control"></td>
+			<td><input type="password" name="memberPw" class="form-control" value="1234"></td>
 		</tr>
 	</table>
 	<div class="d-flex justify-content-end">

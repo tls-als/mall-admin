@@ -84,9 +84,10 @@
 			      <a class="nav-link" href="<%=request.getContextPath()%>/member/logoutAction.jsp">로그아웃</a>
 			    </li>s
 			    <li class="nav-item">
-			      <a class="nav-link" href="<%=request.getContextPath()%>/member/memberList.jsp">회원정보</a>
+			      <a class="nav-link" href="<%=request.getContextPath()%>/member/memberInfo.jsp?memberEmail=<%=session.getAttribute("loginMemberEmail")%>">회원정보</a>
 			    </li>
 			<%
+			System.out.println(session.getAttribute("loginMemberEmail") +  "<--현재 회원 이메일");
 		  		}
 			%>
 		   </ul>
@@ -119,11 +120,13 @@
 
 	<!-- 추천 카테고리 이미지 리스트 -->
 	<div align="center" style="margin-top: 100px;">
+	<div align="left" style="margin-bottom: 50px;"><h4>추천 카테고리</h4></div>
 		<%
 			for(Category c : categoryList2) {
 		%>		
-				<a href="" style="margin-right: 40px;">
+				<a href="<%=request.getContextPath()%>/product/ProductByCategory.jsp?categoryId=<%=c.getCategoryId()%>" style="margin-right: 20px;">
 					<img src="<%=request.getContextPath()%>/images/<%=c.getCategoryPic()%>" class="rounded-circle" width="200px" height="200px">
+					<span class="badge badge-pill badge-info"><%=c.getCategoryName()%></span>
 				</a>
 		<%		
 			}
