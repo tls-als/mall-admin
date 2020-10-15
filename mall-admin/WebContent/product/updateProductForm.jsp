@@ -11,6 +11,23 @@
 <meta charset="UTF-8">
 <title>상품수정페이지</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+/*
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			if($("#productName").val() == ""){
+				alert("제품명을 입력하세요");
+				return;
+			}else if($("#productPrice").val() == 0){
+				alert("가격을 입력하세요");
+				return;
+			}
+			$("#updateForm").submit();
+		});
+	});
+*/
+</script>
 </head>
 <body>
 <div class="container">
@@ -45,20 +62,20 @@
 	<div class="jumbotron">
 		<h1>상품 수정</h1>
 	</div>
-	<form method="post" action="/mall-admin/product/updateProductAction.jsp">
+	<form method="post" action="/mall-admin/product/updateProductAction.jsp" id="updateForm">
 		<h5>Product_name, product_price 수정</h5>
 		<input type="hidden" name="productId" value=<%=productId%>>
 		<table class="table table-bordered">
 			<tr>
 				<td>상품명</td>
-				<td><input type="text" name="productName" value=<%=productName%>></td>
+				<td><input type="text" name="productName" id="productName" value=<%=productName%>></td>
 			</tr>
 			<tr>
 				<td>상품가격</td>
-				<td><input type="text" name="productPrice" value=<%=productPrice%>></td>
+				<td><input type="text" name="productPrice" id="productPrice" value=<%=productPrice%>></td>
 			</tr>
 		</table>
-		<button class="btn btn-secondary" type="submit">수정하기</button>
+		<button class="btn btn-secondary" type="button" id="btn">수정하기</button>
 	</form>
 </div>
 </body>
