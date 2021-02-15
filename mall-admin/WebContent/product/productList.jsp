@@ -5,7 +5,7 @@
 <%@ page import="java.sql.*" %>
 <%
 	if(session.getAttribute("loginAdminId") == null) {
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/mall-admin/login.jsp");
 		return;
 	}
 %>
@@ -66,12 +66,12 @@
 	
 	<!-- 카테고리 목록을 출력 -->
 	<div class="btn-group btn-group-sm">
-		<a class="btn btn-outline-info" href="/mall-admin/product/productList.jsp?&categoryId=-1">전체</a>
+		<a class="btn btn-outline-info" href="<%=request.getContextPath()%>/product/productList.jsp?&categoryId=-1">전체</a>
 		<%
 			
 			for(Category c : categoryList) {
 		%>
-				<a class="btn btn-outline-info" href="/mall-admin/product/productList.jsp?categoryId=<%=c.getCategoryId()%>">	
+				<a class="btn btn-outline-info" href="<%=request.getContextPath()%>/product/productList.jsp?categoryId=<%=c.getCategoryId()%>">	
 					<%=c.getCategoryName()%>
 				</a>
 		<%
@@ -81,7 +81,7 @@
 	
 	<!-- 상품추가 화면(addProduct.jsp)으로 이동하는 링크 -->
 	<div align="right">
-		<a class="btn btn-secondary" href="/mall-admin/product/addProduct.jsp">상품추가</a>
+		<a class="btn btn-secondary" href="<%=request.getContextPath()%>/product/addProduct.jsp">상품추가</a>
 	</div><br>
 	
 	<table class="table table-striped table-hover">
@@ -101,7 +101,7 @@
 			%>		<tr>
 						<td>
 							<del>
-							<a class="btn btn-info" href="/mall-admin/product/productOne.jsp?productId=<%=p.getProductId()%>">
+							<a class="btn btn-info" href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=p.getProductId()%>">
 								<%=p.getProductId()%>
 							</a>
 							</del>
@@ -116,7 +116,7 @@
 			%>		
 					<tr>
 						<td>
-							<a class="btn btn-info" href="/mall-admin/product/productOne.jsp?productId=<%=p.getProductId()%>">
+							<a class="btn btn-info" href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=p.getProductId()%>">
 								<%=p.getProductId()%>
 							</a>
 						</td>
@@ -154,21 +154,21 @@
 						<li class="page-item">
 							<span class="page-link"><%=currentPage%></span>
 						</li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
 					</ul>
 		<%
 				}
 				// 2페이지부터 ~ 마지막 페이지 전까지 페이징 활성화
 				if(currentPage > 1 && lastPage > currentPage) {
 		%>			<ul class="pagination pagination-sm pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
 						<li class="page-item">
 							<span class="page-link"><%=currentPage%></span>
 						</li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
 					</ul>
 		<%
 				}
@@ -176,13 +176,13 @@
 				if(currentPage > 1 && currentPage == lastPage) {
 		%>
 					<ul class="pagination pagination-sm pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
 						<li class="page-item">
 							<span class="page-link"><%=currentPage%></span>
 						</li>
-						<li class="page-item disabled"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
-						<li class="page-item disabled"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
+						<li class="page-item disabled"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
+						<li class="page-item disabled"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
 					</ul>		
 		<%
 				}
@@ -198,33 +198,33 @@
 						<li class="page-item">
 							<span class="page-link"><%=currentPage%></span>
 						</li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
 					</ul>
 		<%
 				}
 				if(currentPage > 1 && lastPage > currentPage) {
 		%>			<ul class="pagination pagination-sm pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
 						<li class="page-item">
 							<span class="page-link"><%=currentPage%></span>
 						</li>						
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
 					</ul>
 		<%
 				}
 				if(currentPage > 1 && currentPage == lastPage) {
 		%>
 					<ul class="pagination pagination-sm pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
-						<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=1&categoryId=<%=categoryId%>" >처음으로</a></li>
+						<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage-1%>&categoryId=<%=categoryId%>">이전</a></li>
 						<li class="page-item">
 							<span class="page-link"><%=currentPage%></span>
 						</li>
-						<li class="page-item disabled"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
-						<li class="page-item disabled"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
+						<li class="page-item disabled"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=currentPage+1%>&categoryId=<%=categoryId%>">다음</a></li>
+						<li class="page-item disabled"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=lastPage%>&categoryId=<%=categoryId%>">마지막으로</a></li>
 					</ul>		
 		<%
 				}

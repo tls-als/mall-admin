@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("loginAdminId") == null) {
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 		return;
 	}
 %>
@@ -38,7 +38,7 @@
 		<h1>카테고리 수정</h1>
 	</div>
 	
-	<form method="post" action="/mall-admin/category/updateCategoryAction.jsp">
+	<form method="post" action="<%=request.getContextPath()%>/category/updateCategoryAction.jsp">
 		<div class="form-group">	
 			<label>category_name 수정 입력</label>
 			<input type="hidden" name="categoryId" value="<%=id%>">

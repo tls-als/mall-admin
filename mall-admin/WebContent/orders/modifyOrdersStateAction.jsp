@@ -28,5 +28,5 @@
 	OrdersDao ordersDao = new OrdersDao();
 	ordersDao.updateOrdersState(orders);
 	
-	response.sendRedirect("/mall-admin/orders/ordersList.jsp");
+	response.sendRedirect(request.getContextPath()+"/orders/ordersList.jsp");
 %>

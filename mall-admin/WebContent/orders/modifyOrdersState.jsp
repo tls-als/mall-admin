@@ -4,18 +4,18 @@
 <%@ page import = "java.util.*" %>
 <%
 	if(session.getAttribute("loginAdminId") == null) {
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 		return;
 	}
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>modifyOrdersState.jsp</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<title>modifyOrdersState.jsp</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body >
+<body>
 <div class="container">
 	<div>
 		<jsp:include page="/inc/menu.jsp"></jsp:include>
@@ -42,24 +42,24 @@
 	<div class="jumbotron">
 		<h1>주문 상태 수정</h1>
 	</div>
-	<form method="post" action="/mall-admin/orders/modifyOrdersStateAction.jsp">
+	<form method="post" action="<%=request.getContextPath()%>/orders/modifyOrdersStateAction.jsp">
 		<table class="table-striped table-bordered">
 			<tr>
 				<td>주문번호</td>
 				<td>
-					<input type="text" name="ordersId" value="<%=ordersId%>" readonly="readonly">
+					<input class="form-control" type="text" name="ordersId" value="<%=ordersId%>" readonly="readonly">
 				</td>
 			</tr>
 			<tr>
 				<td>현재 주문상태</td>
 				<td>
-					<input type="text" value="<%=ordersState%>" readonly="readonly">
+					<input class="form-control" type="text" value="<%=ordersState%>" readonly="readonly">
 				</td>
 			</tr>
 			<tr>
 				<td>주문상태 변경</td>
 				<td>
-					<select name="ordersState">
+					<select class="form-control" name="ordersState">
 						<%
 							for(String state : list) {
 						%>		
@@ -71,7 +71,7 @@
 				</td>
 			</tr>
 		</table>
-		<button class="btn btn-secondary" type="submit">수정하기</button>
+		<button class="btn btn-secondary mt-2" type="submit">수정하기</button>
 </form>
 </div>
 </body>

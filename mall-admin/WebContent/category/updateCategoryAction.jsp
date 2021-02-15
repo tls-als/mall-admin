@@ -22,5 +22,5 @@
 	categoryDao.updateCategory(category);
 	
 	//리다이렉트
-	response.sendRedirect("/mall-admin/category/categoryList.jsp");
+	response.sendRedirect(request.getContextPath()+"/category/categoryList.jsp");
 %>

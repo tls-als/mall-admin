@@ -3,7 +3,7 @@
 <%@ page import="vo.*" %>
 <%
 	if(session.getAttribute("loginAdminId") == null) {
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/mall-admin/login.jsp");
 		return;
 	}
 %>
@@ -38,8 +38,8 @@
 		<tr>
 			<td>product_pic</td>
 			<td colspan="2">
-				<img src="/mall-admin/image/<%=product.getProductPic()%>">
-				<a href="/mall-admin/product/modifyProductPic.jsp?productId=<%=product.getProductId()%>" class="btn btn-primary">이미지 수정</a>
+				<img src="<%=request.getContextPath()%>/image/<%=product.getProductPic()%>">
+				<a href="<%=request.getContextPath()%>/product/modifyProductPic.jsp?productId=<%=product.getProductId()%>" class="btn btn-primary">이미지 수정</a>
 			</td>
 		</tr>
 		<tr>
@@ -68,20 +68,20 @@
 				<%
 					if(product.getProductSoldout().equals("Y")){
 				%>
-						<a class="btn btn-secondary" href="/mall-admin/product/modifyProductSoldoutAction.jsp?productId=<%=product.getProductId()%>&productSoldout=<%=product.getProductSoldout()%>">품절</a>
+						<a class="btn btn-secondary" href="<%=request.getContextPath()%>/product/modifyProductSoldoutAction.jsp?productId=<%=product.getProductId()%>&productSoldout=<%=product.getProductSoldout()%>">품절</a>
 				<%		
 					}else {
 				%>
-						<a class="btn btn-info" href="/mall-admin/product/modifyProductSoldoutAction.jsp?productId=<%=product.getProductId()%>&productSoldout=<%=product.getProductSoldout()%>">판매중</a>
+						<a class="btn btn-info" href="<%=request.getContextPath()%>/product/modifyProductSoldoutAction.jsp?productId=<%=product.getProductId()%>&productSoldout=<%=product.getProductSoldout()%>">판매중</a>
 				<%		
 					}
 				%>
 			</td>
 		</tr>
 		<tr>
-			<td><a class="btn btn-secondary" href="/mall-admin/product/productList.jsp">완료</a></td>
-			<td><a class="btn btn-primary" href="/mall-admin/product/updateProductForm.jsp?productId=<%=product.getProductId()%>&productName=<%=product.getProductName()%>&productPrice=<%=product.getProductPrice()%>">수정</a></td>
-			<td><a class="btn btn-danger" href="/mall-admin/product/deleteProductAcion.jsp?productId=<%=product.getProductId()%>">삭제</a></td>
+			<td><a class="btn btn-secondary" href="<%=request.getContextPath()%>/product/productList.jsp">완료</a></td>
+			<td><a class="btn btn-primary" href="<%=request.getContextPath()%>/product/updateProductForm.jsp?productId=<%=product.getProductId()%>&productName=<%=product.getProductName()%>&productPrice=<%=product.getProductPrice()%>">수정</a></td>
+			<td><a class="btn btn-danger" href="<%=request.getContextPath()%>/product/deleteProductAcion.jsp?productId=<%=product.getProductId()%>">삭제</a></td>
 		</tr>		
 	</table>
 </div>

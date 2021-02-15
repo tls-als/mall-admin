@@ -19,11 +19,11 @@
 	Admin loginAdmin = adminDao.login(paramAdmin);
 	if(loginAdmin == null) {
 		System.out.println("로그인 실패");
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 	}else {
 		System.out.println("로그인 성공");
 		//로그인 정보를 세션에 저장(page < reqeust < session < application)
 		session.setAttribute("loginAdminId", loginAdmin.getAdminId());	//세션에 변수 만드는 방법. 해당 변수가 없으면 로그인 안 된것
-		response.sendRedirect("/mall-admin/index.jsp");
+		response.sendRedirect(request.getContextPath()+"/index.jsp");
 	}
 %>

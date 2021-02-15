@@ -5,7 +5,7 @@
 <%
 	// 로그아웃 상태이면 로그인 화면으로 이동
 	if(session.getAttribute("loginAdminId") == null) {
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 		return;
 	}
 %>

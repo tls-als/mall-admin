@@ -6,5 +6,5 @@
 	ProductDao productDao = new ProductDao();
 	productDao.updateProductSoldout(productId, productSoldout);
 	
-	response.sendRedirect("/mall-admin/product/productOne.jsp?productId="+productId);
+	response.sendRedirect(request.getContextPath()+"/product/productOne.jsp?productId="+productId);
 %>

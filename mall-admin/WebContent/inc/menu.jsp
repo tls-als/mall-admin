@@ -6,25 +6,25 @@
 <nav class="navbar navbar-expand-sm bg-info navbar-dark">
 	<ul class="navbar-nav">
 		<li class="nav-item">
-			<a class="nav-link btn btn-info" href="/mall-admin/index.jsp">|홈으로|</a>
+			<a class="nav-link btn btn-info" href="<%=request.getContextPath()%>/index.jsp">|홈으로|</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link btn btn-info" href="/mall-admin/category/categoryList.jsp">|상품카테고리 관리|</a>
+			<a class="nav-link btn btn-info" href="<%=request.getContextPath()%>/category/categoryList.jsp">|상품카테고리 관리|</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link btn btn-info" href="/mall-admin/product/productList.jsp">|상품 관리|</a>
+			<a class="nav-link btn btn-info" href="<%=request.getContextPath()%>/product/productList.jsp">|상품 관리|</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link btn btn-info" href="/mall-admin/orders/ordersList.jsp">|주문 관리|</a>
+			<a class="nav-link btn btn-info" href="<%=request.getContextPath()%>/orders/ordersList.jsp">|주문 관리|</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link btn btn-info" href="/mall-admin/notice/noticeList.jsp">|공지 관리|</a>
+			<a class="nav-link btn btn-info" href="<%=request.getContextPath()%>/notice/noticeList.jsp">|공지 관리|</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link btn btn-info" href="/mall-admin/member/memberList.jsp">|회원 관리|</a>
+			<a class="nav-link btn btn-info" href="<%=request.getContextPath()%>/member/memberList.jsp">|회원 관리|</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link btn btn-info" href="/mall-admin/logoutAction.jsp">|로그아웃|</a>
+			<a class="nav-link btn btn-info" href="<%=request.getContextPath()%>/logoutAction.jsp">|로그아웃|</a>
 		</li>
 	</ul>	
-</nav>					
+</nav>

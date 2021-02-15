@@ -24,5 +24,5 @@
 	ProductDao productDao = new ProductDao();
 	productDao.insertProduct(product);
 	
-	response.sendRedirect("/mall-admin/product/productList.jsp");
+	response.sendRedirect(request.getContextPath()+"/product/productList.jsp");
 %>

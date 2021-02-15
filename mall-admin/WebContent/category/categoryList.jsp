@@ -4,7 +4,7 @@
 <%@ page import = "java.util.*" %>	<!-- ArrayList를 사용하기 위한 import -->
 <%
 	if(session.getAttribute("loginAdminId") == null) {
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 		return;
 	}
 %>
@@ -35,7 +35,7 @@
 	</div>
 		
 	<div align="right">
-		<a class="btn btn-secondary" href="/mall-admin/category/addCategory.jsp">카테고리추가</a>
+		<a class="btn btn-secondary" href="<%=request.getContextPath()%>/category/addCategory.jsp">카테고리추가</a>
 	</div><br>
 	<%
 		request.setCharacterEncoding("utf-8");
@@ -68,8 +68,8 @@
 					<tr>
 						<td><%=c.getCategoryId()%></td>
 						<td><%=c.getCategoryName()%></td>
-						<td><a class="btn btn-primary" href="/mall-admin/category/updateCategory.jsp?categoryId=<%=c.getCategoryId()%>&categoryName=<%=c.getCategoryName()%>">수정</a></td>
-						<td><a class="btn btn-danger" href="/mall-admin/category/deleteCategoryAction.jsp?categoryId=<%=c.getCategoryId()%>">삭제</a></td>
+						<td><a class="btn btn-primary" href="<%=request.getContextPath()%>/category/updateCategory.jsp?categoryId=<%=c.getCategoryId()%>&categoryName=<%=c.getCategoryName()%>">수정</a></td>
+						<td><a class="btn btn-danger" href="<%=request.getContextPath()%>/category/deleteCategoryAction.jsp?categoryId=<%=c.getCategoryId()%>">삭제</a></td>
 					</tr>
 			<%	
 				}
@@ -98,8 +98,8 @@
 					<li class="page-item">
 						<span class="page-link"><%=currentPage%></span>
 					</li>
-					<li class="page-item"><a class="page-link" href="/mall-admin/category/categoryList.jsp?currentPage=<%=next%>">다음</a></li>
-					<li class="page-item"><a class="page-link" href="/mall-admin/category/categoryList.jsp?currentPage=<%=lastPage%>">마지막으로</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/category/categoryList.jsp?currentPage=<%=next%>">다음</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/category/categoryList.jsp?currentPage=<%=lastPage%>">마지막으로</a></li>
 				</ul>
 			<%
 			}
@@ -107,13 +107,13 @@
 			else if(currentPage > 1 && lastPage > currentPage) {
 			%>			
 				<ul class="pagination pagination-sm pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=1" >처음으로</a></li>
-					<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=pre%>">이전</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=1" >처음으로</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=pre%>">이전</a></li>
 					<li class="page-item">
 						<span class="page-link"><%=currentPage%></span>
 					</li>
-					<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=next%>">다음</a></li>
-					<li class="page-item"><a class="page-link" href="/mall-admin/product/productList.jsp?currentPage=<%=lastPage%>">마지막으로</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=next%>">다음</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/product/productList.jsp?currentPage=<%=lastPage%>">마지막으로</a></li>
 				</ul>
 			<%
 			}
@@ -121,13 +121,13 @@
 			else if(currentPage > 1 && lastPage == currentPage) {
 			%>		
 				<ul class="pagination pagination-sm pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="/mall-admin/category/categoryList.jsp?currentPage=1" >처음으로</a></li>
-					<li class="page-item"><a class="page-link" href="/mall-admin/category/categoryList.jsp?currentPage=<%=pre%>">이전</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/category/categoryList.jsp?currentPage=1" >처음으로</a></li>
+					<li class="page-item"><a class="page-link" href="<%=request.getContextPath()%>/category/categoryList.jsp?currentPage=<%=pre%>">이전</a></li>
 					<li class="page-item">
 						<span class="page-link"><%=currentPage%></span>
 					</li>
-					<li class="page-item disabled"><a class="page-link" href="/mall-admin/category/categoryList.jsp?currentPage=<%=next%>">다음</a></li>
-					<li class="page-item disabled"><a class="page-link" href="/mall-admin/category/categoryList.jsp?currentPage=<%=lastPage%>">마지막으로</a></li>
+					<li class="page-item disabled"><a class="page-link" href="<%=request.getContextPath()%>/category/categoryList.jsp?currentPage=<%=next%>">다음</a></li>
+					<li class="page-item disabled"><a class="page-link" href="<%=request.getContextPath()%>/category/categoryList.jsp?currentPage=<%=lastPage%>">마지막으로</a></li>
 				</ul>
 			<%
 			}

@@ -2,5 +2,5 @@
 <%
 	//세션에 있는 모든 내용 삭제
 	session.invalidate();
-	response.sendRedirect("/mall-admin/login.jsp");
+	response.sendRedirect(request.getContextPath()+"/login.jsp");
 %>

@@ -33,5 +33,5 @@
 	productDao.updateProduct(product);
 	
 	//리다이렉트
-	response.sendRedirect("/mall-admin/product/productList.jsp");
+	response.sendRedirect(request.getContextPath()+"/product/productList.jsp");
 %>

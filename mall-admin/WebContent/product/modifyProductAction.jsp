@@ -47,5 +47,5 @@
 	ProductDao productDao = new ProductDao();
 	productDao.updateProductPic(product);
 	
-	response.sendRedirect("/mall-admin/product/productList.jsp");
+	response.sendRedirect(request.getContextPath()+"/product/productList.jsp");
 %>

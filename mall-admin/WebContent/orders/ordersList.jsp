@@ -4,7 +4,7 @@
 <%@ page import = "vo.*" %>
 <%
 	if(session.getAttribute("loginAdminId") == null) {
-		response.sendRedirect("/mall-admin/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 		return;
 	}
 %>
@@ -44,29 +44,33 @@
 	<div class="jumbotron">
 		<h1>주문  LIST</h1>
 	</div>
-	<form method="post" action="/mall-admin/orders/ordersList.jsp">
-		<select name="ordersState">
-			<option>선택</option>
-			<%
-				// 상태 항목리스트 결과를 호출하여 변수 list2에 담음
-				list2 = ordersDao.selectOrdersStateList();
-				// 상태 항목을 하나씩 가져와 변수 s에 담기
-				for(String s : list2) {
-					// 항목 s와 요청받은 주문상태와 같으면 해당 상태로 고정
-					if(s.equals(ordersState)) {
-			%>		
-						<option value=<%=s%> selected="selected"><%=s%></option>
-			<%
-					}else {
-			%>
-						<option value=<%=s%>><%=s%></option>
-			<%
+	<form method="post" action="<%=request.getContextPath()%>/orders/ordersList.jsp">
+		<div class="input-group mb-3">
+			<select class="form-control col-3" name="ordersState">
+				<option>선택</option>
+				<%
+					// 상태 항목리스트 결과를 호출하여 변수 list2에 담음
+					list2 = ordersDao.selectOrdersStateList();
+					// 상태 항목을 하나씩 가져와 변수 s에 담기
+					for(String s : list2) {
+						// 항목 s와 요청받은 주문상태와 같으면 해당 상태로 고정
+						if(s.equals(ordersState)) {
+				%>		
+							<option value=<%=s%> selected="selected"><%=s%></option>
+				<%
+						}else {
+				%>
+							<option value=<%=s%>><%=s%></option>
+				<%
+						}
+						System.out.println(s + "<- 상태");
 					}
-					System.out.println(s + "<- 상태");
-				}
-			%>
-		</select>
-		<button class="btn btn-secondary" type="submit">주문상태별로 보기</button>
+				%>
+			</select>
+			<div class="input-group-append">
+				<button class="btn btn-secondary" type="submit">주문상태별로 보기</button>
+			</div>		
+		</div>
 	</form>
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
@@ -98,7 +102,7 @@
 					<td><%=oap.orders.getOrdersAddr()%></td>
 					<td><%=oap.orders.getOrdersState()%></td>
 					<td><%=oap.orders.getOrdersDate()%></td>
-					<td><a class="btn btn-primary" href="/mall-admin/orders/modifyOrdersState.jsp?ordersId=<%=oap.orders.getOrdersId()%>&ordersState=<%=oap.orders.getOrdersState()%>">orders_state 수정</a></td>
+					<td><a class="btn btn-primary" href="<%=request.getContextPath()%>/orders/modifyOrdersState.jsp?ordersId=<%=oap.orders.getOrdersId()%>&ordersState=<%=oap.orders.getOrdersState()%>">orders_state 수정</a></td>
 				</tr>
 			<%
 				}
